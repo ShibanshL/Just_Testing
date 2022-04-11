@@ -7,36 +7,57 @@
     <title>Document</title>
 </head>
 <body>
-    <div></div>
-    <input type="text" name="name" id="s">
-    <button onclick="ch()">Add</button>
+    <div class="content">
+
+        <div class="matter">
+      
+          <p class="header">Movie Mania</p>
+          <div class="regis">
+      
+            <form class="reg">
+      
+              <input type="text" name="user" id="movie" placeholder="Please enter 
+              any movie name" size="40">
+              <hr>
+              <div><input type="submit" class="button" value="Search" id="sub" onclick="return validation()" /></div>
+      
+          </div>
+        </div>
+      </div>
+      
+      </form>
 
     <script>
-        var div = document.querySelector('div')
-        var inp = document.querySelector('input').value
-        var but = document.querySelector('but')
-        
-        function ch(){
-            let data = []
+    //    var movie1 = ["Bahubali", "The Final Destination", "The Cars ","P.K ","   Bajarangi Baijaan ","Force "];
+       var movie1 = [];
 
-            while(true){
-                // let input = prompt('Give d0ata')
-                if(inp == 'q' || inp == null){
-                    break
-                }
-                data.push(inp)
-                div.innerHTML = data
-                console.log(data)
-                // JSON.stringify(data)
+        function insert() {
+        var movie = document.getElementById("movie").value;
+            if (!movie1.includes(movie)) { //  ! refer for false statement 
+            movie1.push(movie);
+            var name2 = "Movie added into Array2";
+            console.log(name2);
+            } else {
+            var name2 = "Movie already added to Array2";
+            cosole.log(name2);
             }
+            console.log(movie1)
         }
 
-        // var a = [1, 2]
-        // console.log(a);
-
-        // a.push(a);
-        // console.log(a);
-        // JSON.stringify(a);
+        function validation() {
+        var movie = document.getElementById("movie").value;
+            if (!movie.trim()) { //its validate the input empty undefined null
+            var name2 = "Please enter your favoite movie name";
+            console.log(name2);
+            }
+            else if (movie1.includes(movie)) { // includes used for  find the value is in array or not
+                var name2 = "Movie exists in our database";
+                console.log(name2);
+            } else {
+                insert();
+            }
+            return false;
+        }
 
 
 
