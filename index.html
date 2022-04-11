@@ -7,20 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div></div>
+    <input type="text" name="name" id="s">
+    <button onclick="ch()">Add</button>
 
     <script>
+        var div = document.querySelector('div')
+        var inp = document.querySelector('input').value
+        var but = document.querySelector('but')
+        
+        function ch(){
+            let data = []
 
-        let data = []
-
-        while(true){
-            let input = prompt('Give d0ata')
-            if(input == 'q' || input == null){
-                break
+            while(true){
+                // let input = prompt('Give d0ata')
+                if(inp == 'q' || inp == null){
+                    break
+                }
+                data.push(inp)
+                div.innerHTML = data
+                console.log(data)
             }
-            data.push(input)
-            console.log(data)
         }
+        
 
 
 
